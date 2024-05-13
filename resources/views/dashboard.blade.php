@@ -1,15 +1,30 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+    <div class="row mt-3 mx-5">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Current Balance</h5>
+                    <p class="card-text">{{ number_format($user?->balance, 2) }}</p>
+                    <a href="#" class="btn btn-primary">Show All Transaction</a>
+                </div>
+            </div>
+        </div>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Deposit</h5>
+                    <p class="card-text">{{ number_format($user?->total_deposit, 2) }}</p>
+                    <a href="#" class="btn btn-primary">Show All Deposit</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Withdraw</h5>
+                    <p class="card-text">{{ number_format($user?->total_withdraw, 2) }}</p>
+                    <a href="#" class="btn btn-primary">Show All Withdraw</a>
                 </div>
             </div>
         </div>

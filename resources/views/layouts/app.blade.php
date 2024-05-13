@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="base-url" content="{{ url('/') }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -12,10 +13,11 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/js/app.js'])
+        @stack('style')
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div>
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -29,8 +31,10 @@
 
             <!-- Page Content -->
             <main>
+                <x-alert />
                 {{ $slot }}
             </main>
         </div>
     </body>
+    @stack('script')
 </html>

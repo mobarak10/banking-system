@@ -16,6 +16,21 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- Email Address -->
+        <div class="mt-4">
+            <x-input-label for="email" :value="__('Account Type')" />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" {{ old('account_type') == 'individual' ? 'checked' : '' }} type="radio" name="account_type" id="individual" value="individual">
+                <label class="form-check-label" for="individual">Individual</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" {{ old('account_type') == 'business' ? 'checked' : '' }} name="account_type" id="business" value="business">
+                <label class="form-check-label" for="business">Business.</label>
+            </div>
+            <x-input-error :messages="$errors->get('account_type')" class="mt-2" />
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
