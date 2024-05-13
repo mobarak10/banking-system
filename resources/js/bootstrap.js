@@ -1,4 +1,4 @@
-import axios from 'axios';
-window.axios = axios;
+import "./plugins";
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+// Add scss
+import "../scss/app.scss";
