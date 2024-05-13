@@ -66,7 +66,7 @@
                                     <th>{{ $transactions?->firstItem() + $index }}</th>
                                     <td>{{ \Carbon\Carbon::parse($transaction?->date)->format('d F Y') }}</td>
                                     <td>{{ number_format($transaction?->amount, 2) }}</td>
-                                    <td>{{ $transaction?->type }}</td>
+                                    <td class="text-center">{{ $transaction?->transaction_type }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
