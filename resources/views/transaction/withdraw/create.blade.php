@@ -42,6 +42,11 @@
                             <label for="name_en" class="form-label required">Amount</label>
                             <input type="number" step="any" class="form-control @error('amount') is-invalid @enderror" id="amount"
                                    name="amount" value="{{ old('amount') }}" placeholder="Enter amount">
+                            @if($account_type === 'individual')
+                                <small>Friday withdraw id free, First 1K is free, Every Month 5K is free, After that every withdraw cost 0.015% fee</small>
+                            @else
+                                <small>First 50k fee is 0.025% then 0.015%</small>
+                            @endif
                             @error('amount')
                             <div class="invalid-feedback">
                                 {{ $message }}

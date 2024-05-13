@@ -70,7 +70,8 @@ class TransactionController extends Controller
 
     public function createWithdraw()
     {
-        return view('transaction.withdraw.create');
+        $account_type = Auth::user()->account_type;
+        return view('transaction.withdraw.create', compact('account_type'));
     }
 
     public function storeWithdraw(WithdrawStoreRequest $request)
